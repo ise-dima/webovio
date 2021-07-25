@@ -6,30 +6,46 @@
 *::after{
     box-sizing: border-box;
 } 
-@font-face {
-    font-family: "futura PT";                                   /*код подключения шрифта*/
-    src: url("../fonts/futuraPTMedium.woff2") format("woff2"),  /*код подключения шрифта*/
-    url("../fonts/futuraPTMedium.woff") format("woff");         /*код подключения шрифта*/
+@font-face {                                                    /*медиа запрос к шрифту*/
+    font-family: "Poppins";                                     /*тут водиться шрифт*/
+    src: url("../fonts/Poppins-Regular.woff") format("woff");   /*код подключения шрифта*/
     font-display: swap;                                         /*код подключения шрифта*/
-    font-weight: 500;                                           /*код подключения шрифта*/
-    font-style: normal;                                         /*код подключения шрифта*/
+    font-weight: 400;                                           /*тут водиться размер шрифта*/
+    font-style: normal;                                         /*тут убирается все стили шрифта*/
 }
-
+@font-face {                                                    /*медиа запрос к шрифту*/
+    font-family: "Poppins";                                     /*тут водиться шрифт*/
+    src: url("../fonts/Poppins-Medium.woff") format("woff");   /*код подключения шрифта*/
+    font-display: swap;                                         /*код подключения шрифта*/
+    font-weight: 500;                                           /*тут водиться размер шрифта*/
+    font-style: normal;                                         /*тут убирается все стили шрифта*/
+}
+@font-face {                                                    /*медиа запрос к шрифту*/
+    font-family: "Poppins";                                     /*тут водиться шрифт*/
+    src: url("../fonts/Poppins-Bold.woff") format("woff");      /*код подключения шрифта*/
+    font-display: swap;                                         /*код подключения шрифта*/
+    font-weight: 700;                                           /*тут водиться размер шрифта*/
+    font-style: normal;                                         /*тут убирается все стили шрифта*/
+}
+:root { /*переменная*/
+    --font-family:"Poppins",sans-serif; /*--font-family -название переменной ("Poppins",sans-serif; -какой будет шрифт) */
+}
 body {
-    font-family: "",sans-serif;
-    font-weight: 400;
+    font-family:var(--font-family); /*var(--font-family) -вызывает переменную (--font-family) -название переменной*/                          /*тут водиться шрифт*/
+    font-weight: 400; /*тут водиться размер шрифта*/
 }
 img {
     max-width: 100%; /* что бы были внутри родителя и не уходили за пределы */
 }
-.list-reset {
-    margin: 0;      /*.list-reset это чтобы убрать все точки у элемента <ul> (для применения нужно использовать класс в HTML .list-reset)*/  
+.list-reset {  /*.list-reset это шаблон CSSa который убирает все ненужные стили */
+    margin: 0;         
     padding: 0;
     list-style: none;
 }
 .btn-reset { /*сброс значений кнопки*/
     padding: 0;
-    border: none; 
+    border: none;
+    font-family: "Poppins",sans-serif; /*тут водиться шрифт(кнопка на наследует от body шрифт)*/
     background-color: transparent; /*прозрачный цвет у кнопок*/
     cursor: pointer; /*применения лапка в виде руки */
 }
@@ -40,19 +56,22 @@ img {
 }
 .header {
     position: absolute;
+    padding: 24px 0; /*отступ с верху и с низу 24 px*/
     left: 0; /*с лево 0*/
     top: 0;  /*с верху 0*/
     width: 100%; /* ширина 100% */
 }
 .header-container{
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .burger {
-    --offset: 11px; /*(-- это переменное )(offset это название переменной,название переменной может назвать любым словам )*/
+    --offset-horizontal: 11px; /*(-- это переменное по горизонтали )(offset это название переменной,название переменной может назвать любым словам )*/
+    --offset-vertical: 14px; /*(-- это переменное по вертикали)(offset это название переменной,название переменной может назвать любым словам )*/
     position: relative;
     border-radius: 100%;
-    padding: 14px var(--offset); /*(var(--offset) var вызываем переменную )*/
+    padding: var(--offset-vertical) var(--offset); /*(var(--offset) var вызываем переменную )*/
     width: 40px;  /*ширина блока*/
     height: 40px; /*высота блока*/
     background-color: #f5f6f7;
@@ -60,12 +79,18 @@ img {
 .burger-line {
     position: absolute;
     left:50%;  /*строка 61,62,68 -это выравнивание по центру наш элемент*/ 
-    top: 0;
+    top: var(--offset-vertical);
     display: inline-block; /*сделать блок строчно блочным*/
-    width:calc(100% - (var(--offset) * 2)); /* 100% (то есть 40px) ширины (--offset будет значение 11px) умноженное на 2 =22px */
+    width:calc(100% - (var(--offset-horizontal) * 2)); /* 100% (то есть 40px) ширины (--offset будет значение 11px) умноженное на 2 =22px */
     height: 2px;
     background-color: #000;
     transform: translateX(-50%); /*центровка элемента position: absolute;*/
+}
+.burger-line:nth-child(2) { /*обращение ко второму элементу*/
+    top: calc(var(--offset-vertical) + 6px); /*когда классы в HTML одинаковы можно использовать переменные с номерацией 1,2,3*/
+}
+.burger-line:nth-child(3) { /*обращение к третьему элементу*/
+    top: calc(var(--offset-vertical) + 12px);/*когда классы в HTML одинаковы можно использовать переменные с номерацией 1,2,3*/
 }
 .hero {
     padding-top: 100px;
