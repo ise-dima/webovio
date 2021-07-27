@@ -27,11 +27,11 @@
     font-weight: 700;                                           /*тут водиться размер шрифта*/
     font-style: normal;                                         /*тут убирается все стили шрифта*/
 }
-:root { /*переменная*/
+:root { /*Глобальная переменная (работает для всего сайта)*/
     --font-family:"Poppins",sans-serif; /*--font-family -название переменной ("Poppins",sans-serif; -какой будет шрифт) */
 }
 body {
-    font-family:var(--font-family); /*var(--font-family) -вызывает переменную (--font-family) -название переменной*/                          /*тут водиться шрифт*/
+    font-family:var(--font-family); /*var(--font-family) -вызывает переменную (--font-family) -название переменной тут водиться шрифт*/
     font-weight: 400; /*тут водиться размер шрифта*/
 }
 img {
@@ -44,8 +44,8 @@ img {
 }
 .btn-reset { /*сброс значений кнопки*/
     padding: 0;
-    border: none;
-    font-family: "Poppins",sans-serif; /*тут водиться шрифт(кнопка на наследует от body шрифт)*/
+    border: none; /*убирает обводку кнопки*/
+    font-family:var(--font-family); /*var(--font-family) -вызывает переменную (--font-family) -название переменной тут водиться шрифт*/
     background-color: transparent; /*прозрачный цвет у кнопок*/
     cursor: pointer; /*применения лапка в виде руки */
 }
@@ -54,6 +54,32 @@ img {
     padding: 0 15px;  /* padding: 0 15px нужно суммировать 15л+15п=30 и добавить в max-width: */
     margin:0 auto; /*выравнивание блок с шириной по центру*/
 }
+.link {
+display: inline-flex; /*строчная блочность (text-indent - отступ в начале строки) (inline-flex поместить элементы в один ряд)*/
+font-weight:700;
+font-size: 16px;
+line-height: 18px; /*меж строчная высота*/
+text-decoration: none;
+color: #d4d6d4;
+transition: color 0.3s ease-in-out; /*(transition:)АНИМАЦИЯ ПЕРЕХОДА,(color 0.3s)ВРЕМЯ ПЕРЕХОДА,(ease-in-out)Анимация начинается и заканчивается медленно. */
+}
+ /*стрелка*/
+.link svg {
+width: 12px;
+height: 12px;
+fill:currentColor; /*currentColor повторяет цвет который есть в блоке (#d4d6d4)*/
+transform: translateY(1px); /*transform: translateY или Х (перемещение элементы по вертикале или по горизонтали) */  
+}
+
+.link span {
+text-indent: 10px; /*работает только со строчной блочностью (text-indent - отступ в начале строки)*/
+border-bottom: 1px solid currentColor; /*currentColor повторяет цвет который есть в блоке (#d4d6d4)*/
+}
+
+.link:hover { /*анимация при наведение*/
+color: #FFD723;
+}
+
 .header {
     position: absolute;
     padding: 24px 0; /*отступ с верху и с низу 24 px*/
@@ -66,7 +92,7 @@ img {
     align-items: center;
     justify-content: space-between;
 }
-.burger {
+.burger { /*--offset-horizontal  --offset-vertical  локальные переменные (работает только внутри блока)*/
     --offset-horizontal: 11px; /*(-- это переменное по горизонтали )(offset это название переменной,название переменной может назвать любым словам )*/
     --offset-vertical: 14px; /*(-- это переменное по вертикали)(offset это название переменной,название переменной может назвать любым словам )*/
     position: relative;
@@ -93,11 +119,40 @@ img {
     top: calc(var(--offset-vertical) + 12px);/*когда классы в HTML одинаковы можно использовать переменные с номерацией 1,2,3*/
 }
 .hero {
-    padding-top: 100px;
+    padding-top: 189px;
+    padding-bottom: 100px;
+    min-height: 811px; /*когда используеш min-height:, обязательно надо использовать padding-top,padding-bottom иначе не сработает */
     background-image: url("/static/images/Bitmap.png");
     background-size: cover; /*растягивает картинку*/
     background-position: center; /*центровать картинку по центру*/
     background-repeat: no-repeat; /*убирает повторения кортике*/
+}
+.hero-content {
+    max-width: 616px;
+    color: #FFF;
+}
+.hero-subtitle {
+display: inline-block; /*сделать блок строчно блочным */
+margin-bottom: 22px;   /*отступ снизу*/
+font-size: 14px;
+line-height: 21px;
+}
+.hero-title {
+margin: 0;            /*сброс отступов*/
+margin-bottom: 24px;  /*отступ снизу*/
+font-weight:700;
+font-size: 60px;
+line-height: 74px;
+}
+.hero-descr {
+margin: 0;            /*сброс отступов*/
+margin-bottom: 45px;  /*отступ снизу*/
+font-size: 16px;
+line-height: 26px;
+}
+
+.hero-link {
+color: #FFD723;
 }
 
 :root {
