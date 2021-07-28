@@ -80,6 +80,13 @@ border-bottom: 1px solid currentColor; /*currentColor повторяет цве�
 color: #FFD723;
 }
 
+.site-title {
+font-weight: 700;
+font-size: 36px;
+line-height: 46px;
+color: #4D533C;
+}
+
 .header {
     position: absolute;
     padding: 24px 0; /*отступ с верху и с низу 24 px*/
@@ -128,31 +135,61 @@ color: #FFD723;
     background-repeat: no-repeat; /*убирает повторения кортике*/
 }
 .hero-content {
-    max-width: 616px;
-    color: #FFF;
+    max-width: 616px;  /*максимальная ширина*/
+    color: #FFF;     /*цвет текста*/
 }
 .hero-subtitle {
 display: inline-block; /*сделать блок строчно блочным */
 margin-bottom: 22px;   /*отступ снизу*/
-font-size: 14px;
-line-height: 21px;
+font-size: 14px;       /*размер текста*/
+line-height: 21px;     /*высота между строк*/
 }
 .hero-title {
 margin: 0;            /*сброс отступов*/
 margin-bottom: 24px;  /*отступ снизу*/
-font-weight:700;
-font-size: 60px;
-line-height: 74px;
+font-weight:700;      /*стиль шрифта*/
+font-size: 60px;      /*размер текста*/
+line-height: 74px;    /*высота между строк*/
 }
 .hero-descr {
 margin: 0;            /*сброс отступов*/
 margin-bottom: 45px;  /*отступ снизу*/
-font-size: 16px;
-line-height: 26px;
+font-size: 16px;      /*размер текста*/
+line-height: 26px;    /*высота между строк*/
 }
 
 .hero-link {
 color: #FFD723;
+}
+
+.services {
+    padding-top: 150px;   /*внутренний отступ с верху*/
+    padding-bottom: 50px; /*внутренний отступ с низу*/
+}
+
+.services-title {
+margin: 0;
+max-width: 606px; /*максимальная ширина */
+}
+  /*GRID*/
+.services-list {
+display: grid;
+gap: 30px; /*отступ между блоками 30рх (лучше чем margin) АДОПТИВНЫЙ*/
+grid-template-columns: repeat(4,1fr); /*сделать солонки в grid (repeat -повторить 4 колонки 1fr -равномерный кусочек блока)*/
+}
+.services-subtitle {
+margin: 0;
+font-weight: 500;  /*стиль шрифта*/
+font-size: 24px;   /*размер текста*/
+line-height: 34px; /*высота между строк*/
+text-transform: uppercase; /*сделать все большие буквы*/
+color: #4D533C; /*цвет текста*/
+}
+.services-descr {
+margin: 0;         /*отступ снаружи блока */
+font-size: 14px;   /*размер текста*/
+line-height: 26px; /*высота между строк*/
+color: rgba(33, 56, 66, 0.6);
 }
 
 :root {
