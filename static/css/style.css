@@ -169,7 +169,8 @@ color: #FFD723;
 
 .services-title {
 margin: 0;
-max-width: 606px; /*максимальная ширина */
+margin-bottom: 60px; /*отступ снизу*/
+max-width: 606px;    /*максимальная ширина */
 }
   /*GRID*/
 .services-list {
@@ -178,18 +179,28 @@ gap: 30px; /*отступ между блоками 30рх (лучше чем ma
 grid-template-columns: repeat(4,1fr); /*сделать солонки в grid (repeat -повторить 4 колонки 1fr -равномерный кусочек блока)*/
 }
 .services-subtitle {
-margin: 0;
-font-weight: 500;  /*стиль шрифта*/
-font-size: 24px;   /*размер текста*/
-line-height: 34px; /*высота между строк*/
+margin: 0;           /*отступ снаружи блока */
+margin-bottom: 20px; /*отступ снизу*/
+max-width: 183px;    /*максимальная ширина для заголовка что бы он перенесся*/
+font-weight: 500;    /*стиль шрифта*/
+font-size: 24px;     /*размер текста*/
+line-height: 34px;   /*высота между строк*/
 text-transform: uppercase; /*сделать все большие буквы*/
-color: #4D533C; /*цвет текста*/
+color: #4D533C;   /*цвет текста*/
 }
 .services-descr {
-margin: 0;         /*отступ снаружи блока */
-font-size: 14px;   /*размер текста*/
-line-height: 26px; /*высота между строк*/
+margin: 0;           /*отступ снаружи блока */
+margin-bottom: 56px; /*отступ снизу*/
+font-size: 14px;     /*размер текста*/
+line-height: 26px;   /*высота между строк*/
 color: rgba(33, 56, 66, 0.6);
+}
+.services-item {
+display: flex;
+flex-direction: column;
+}
+.services-link {
+margin-bottom: 0;
 }
 
 :root {
