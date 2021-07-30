@@ -163,8 +163,9 @@ color: #FFD723;
 }
 
 .services {
+    margin-bottom: -180px;
     padding-top: 150px;   /*внутренний отступ с верху*/
-    padding-bottom: 50px; /*внутренний отступ с низу*/
+    padding-bottom: 150px; /*внутренний отступ с низу*/
 }
 
 .services-title {
@@ -180,7 +181,7 @@ grid-template-columns: repeat(4,1fr); /*сделать солонки в grid (r
 }
 .services-subtitle {
 margin: 0;           /*отступ снаружи блока */
-margin-bottom: 20px; /*отступ снизу*/
+margin-bottom: 20px; /*наружный отступ снизу*/
 max-width: 183px;    /*максимальная ширина для заголовка что бы он перенесся*/
 font-weight: 500;    /*стиль шрифта*/
 font-size: 24px;     /*размер текста*/
@@ -191,17 +192,49 @@ color: #4D533C;   /*цвет текста*/
 .services-descr {
 margin: 0;           /*отступ снаружи блока */
 margin-bottom: 56px; /*отступ снизу*/
+max-width: 194px;    /*максимальная ширина блока*/
+font-weight: 500;    /*стиль шрифта*/
 font-size: 14px;     /*размер текста*/
 line-height: 26px;   /*высота между строк*/
 color: rgba(33, 56, 66, 0.6);
 }
 .services-item {
 display: flex;
+align-items: flex-start;
 flex-direction: column;
 }
 .services-link {
-margin-bottom: 0;
+margin-bottom: 0;  /*наружный отступ снизу*/
+margin-top: auto; /*внешний отступ с верху (auto -выравнивание) для каждого блока свой отступ с верху*/
 }
+.get-started {
+position: relative;
+top: 180px;             /*отступ верху*/
+padding: 70px 0;        /*внутренний отступ с верху с низу 70px,с право и с лево 0*/
+width: 88%;             /*ширина (% - используются для АДОПТИВНОГО сайта)*/
+box-shadow: 50px 130px 100px rgba(0, 0, 0, 0.145947);
+background-color : #FAFAFA; /*цвет блока*/
+}
+.get-started-title {
+margin: 0;             /*отступ снаружи блока */
+margin-bottom: 50px;   /*наружный отступ снизу*/
+max-width: 822px;      /*максимальная ширина блока*/
+font-weight: 700;      /*стиль шрифта*/
+font-size: 60px;       /*размер текста*/
+line-height: 74px;     /*высота между строк*/
+color: #4D533C;      /*размер текста*/
+}
+.get-started-link {
+text-transform: uppercase; /*все буквы большие*/
+
+}
+.footer {
+background-image: url("../images/footer-bg.jpg");
+background-size: cover; /*растягивает картинку*/
+background-position: center; /*центровать картинку по центру*/
+background-repeat: no-repeat; /*убирает повторения кортике*/
+}
+
 
 :root {
     --accent-color: #5d71dd;
