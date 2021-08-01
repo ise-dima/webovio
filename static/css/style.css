@@ -37,12 +37,12 @@ body {
 img {
     max-width: 100%; /* что бы были внутри родителя и не уходили за пределы */
 }
-.list-reset {  /*.list-reset это шаблон CSSa который убирает все ненужные стили */
+.list-reset {  /*.list-reset -сброс значений элемента li (убирает точку) */
     margin: 0;         
     padding: 0;
     list-style: none;
 }
-.btn-reset { /*сброс значений кнопки*/
+.btn-reset { /* btn-reset -сброс значений кнопки*/
     padding: 0;
     border: none; /*убирает обводку кнопки*/
     font-family:var(--font-family); /*var(--font-family) -вызывает переменную (--font-family) -название переменной тут водиться шрифт*/
@@ -212,7 +212,7 @@ position: relative;
 top: 180px;             /*отступ верху*/
 padding: 70px 0;        /*внутренний отступ с верху с низу 70px,с право и с лево 0*/
 width: 88%;             /*ширина (% - используются для АДОПТИВНОГО сайта)*/
-box-shadow: 50px 130px 100px rgba(0, 0, 0, 0.145947);
+box-shadow: 50px 130px 100px rgba(0, 0, 0, 0.145947); /*позволяет добавлять одну или несколько теней*/
 background-color : #FAFAFA; /*цвет блока*/
 }
 .get-started-title {
@@ -222,22 +222,46 @@ max-width: 822px;      /*максимальная ширина блока*/
 font-weight: 700;      /*стиль шрифта*/
 font-size: 60px;       /*размер текста*/
 line-height: 74px;     /*высота между строк*/
-color: #4D533C;      /*размер текста*/
+color: #4D533C;      /*цвет текста*/
 }
 .get-started-link {
 text-transform: uppercase; /*все буквы большие*/
 
 }
 .footer {
+padding-top: 310px; /*внутренний отступ с верху*/
+color: #FFF;    /*цвет текста*/
 background-image: url("../images/footer-bg.jpg");
 background-size: cover; /*растягивает картинку*/
 background-position: center; /*центровать картинку по центру*/
 background-repeat: no-repeat; /*убирает повторения кортике*/
 }
-
+.footer-top {
+display: flex;
+flex-wrap: wrap; /*переместится элементы в колонку когда перестанут помещаться(АДАПТИВНОСТЬ)*/
+}
+.footer-contacts-item:not(:last-child) {  /*у всех элементов кроме последнего*/
+margin-right: 128px; /*наружный отступ на право */
+}
+.footer-contacts-text {
+display: block; /*(display: block;-перенос строки в колонку вниз)*/
+margin-bottom: 8px;/*наружный отступ снизу*/
+font-size: 16px;   /*размер текста*/
+line-height: 40px; /*высота между строк*/
+color: #B6C197;  /*цвет текста*/
+}
+.footer-contacts-value {
+display: inline-block; /*отступ*/
+font-weight: 700;  /*стиль шрифта*/
+font-style: normal; /*сбрасывает все стили шрифта*/
+font-size: 16px;   /*размер текста*/
+line-height: 40px; /*высота между строк*/
+color: #FFF;     /*цвет текста*/
+text-decoration: none; /*убирает подчеркивание текста*/
+}
 
 :root {
-    --accent-color: #5d71dd;
-    --dark-color: #2f2222 ;
-    --grid-gap:40px;
+--accent-color: #5d71dd;
+--dark-color: #2f2222 ;
+--grid-gap:40px;
 }
