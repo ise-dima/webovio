@@ -147,7 +147,7 @@ color: #4D533C;
 }
 .hero-subtitle {
 display: inline-block; /*сделать блок строчно блочным */
-margin-bottom: 22px;   /*отступ снизу*/
+margin-bottom: 22px;   /*наружный отступ снизу(margin-bottom: работает только с  display: inline-block;)*/
 font-size: 14px;       /*размер текста*/
 line-height: 21px;     /*высота между строк*/
 }
@@ -271,13 +271,28 @@ text-decoration: none; /*убирает подчеркивание текста*
 .footer-middle {
 --grid-gap: 70px;   /*переменная в этом блоке*/
 display: grid;
-padding-top: 60px;  /*внутренний отступ с верху*/
+padding: 60px 0;  /*внутренний отступ с верху с низу (60 px) c право и с лево (0)*/
 gap: var(--grid-gap); /*отступ между блоками 70рх (лучше чем margin) АДОПТИВНЫЙ*/
 grid-template-columns: repeat(4,1fr); /*сделать солонки в grid (repeat -повторить 4 колонки 1fr -равномерный кусочек блока)*/
+border-bottom: 1px solid #5D6544;
 }
+.footer-column:last-child {
+position: relative;
+}
+
+.footer-column:last-child::before { /*(:last-child -переменная)(::before -псевдо элемент)*/
+content: "";
+position: absolute;
+top: 0; /*отступ верху*/
+left: calc(-1 * (var(--grid-gap)));
+width: 1px;        /*ширина*/
+height: 100%;    /*высота*/
+background-color: #5d6544; /*цвет блока*/
+}
+
 .footer-title {
 margin: 0;                 /*отступ снаружи блока */
-margin-bottom: 21px;       /*наружный отступ снизу*/
+margin-bottom: 21px;       /*наружный отступ снизу(margin-bottom: работает только с  display: inline-block;)*/
 font-weight: 600;          /*стиль шрифта*/
 font-size: 16px;           /*размер текста*/
 line-height: 38px;         /*высота между строк*/
@@ -285,14 +300,76 @@ text-transform: uppercase; /*все буквы большие*/
 color: #FFF;             /*цвет текста*/
 }
 .footer-link {
-display: inline-block; /*сделать блок строчно блочным */
-font-size: 16px;       /*размер текста*/
- line-height: 40px;     /*высота между строк*/
-text-decoration: none; /*убирает подчеркивание текста*/
-color: #B6C197;
+display: inline-block;   /*сделать блок строчно блочным */
+font-size: 16px;         /*размер текста*/
+line-height: 40px;       /*высота между строк*/
+text-decoration: none;   /*убирает подчеркивание текста*/
+color: #B6C197;        /*цвет текста*/
 }
 .footer-text {
-margin: 0;
+margin: 0;                 /*отступ снаружи блока */
+margin-bottom: 23px;       /*наружный отступ снизу(margin-bottom: работает только с  display: inline-block;)*/
+font-size: 16px;           /*размер текста*/
+line-height: 26px;         /*высота между строк*/
+color: #B6C197;          /*цвет текста*/
+}
+.footer-mail {
+display: inline-block; /*чтобы сработал отступ с низу*/
+margin-bottom: 24px;   /*наружный отступ снизу(margin-bottom: работает только с  display: inline-block;)*/
+font-weight: 700;      /*стиль шрифта*/
+font-size: 24px;       /*размер текста*/
+line-height: 38px;     /*высота между строк*/
+text-decoration: none; /*убирает подчеркивание текста*/
+color: #FFF;         /*цвет текста*/
+}
+
+.social {
+display: flex;
+align-items: center; /*центровка по центру*/
+}
+.social-item:not(:last-child) { /*не у последнего*/
+margin-right: 11px; /*наружный отступ с право*/
+}
+
+.social-link {  /*ШАБЛОН для соцсетей*/
+display: block; /*(display: block;-перенос строки в колонку вниз)*/
+border-radius: 100%;
+width: 33px;    /*ширина*/
+height: 33px;   /*высота*/
+background-color: #FFD723; /*цвет блока*/
+background-position: center; /*центровка картинки по центру*/
+background-repeat: no-repeat;/*убирает повторения кортики*/ 
+background-size: 18px auto;  /*размер (18px) картинки внутри блока*/
+opacity: 0.4; /*Определяет уровень прозрачности элемента*/
+transition: opacity 0.3s ease-in-out; /*АНИМАЦИЯ ПЕРЕХОДА (плавное)(opacity 0.3 прозрачность элемента) */
+}
+
+.social-link:hover { /*при наведение*/
+opacity: 1; /*Определяет уровень прозрачности элемента*/
+}
+
+.social-link-fb {
+background-image: url("../svg/fb.svg");         /*картинка*/
+}
+.social-link-tw {
+background-image: url("../svg/twitter.svg");    /*картинка*/
+}
+.social-link-g {
+background-image: url("../svg/google-plus.svg");/*картинка*/
+}
+.social-link-in {
+background-image: url("../svg/in.svg");         /*картинка*/
+}
+.copyright {
+font-size: 14px;   /*размер текста*/
+line-height: 21px; /*высота между строк*/
+color: #B5C096;  /*цвет текста*/
+}
+.footer-bottom {
+display: flex;
+align-items: center; /*центровка по центру*/
+justify-content: space-between; /*растянуть блоки по ширине*/
+padding: 24px 0; /*внутренний отступ с верху с низу (24 px) c право и с лево (0)*/
 }
 
 :root {
