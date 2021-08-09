@@ -2,7 +2,9 @@
     box-sizing: border-box; /* что бы падинги работали во внутырь */
 }
 
-*::before /* это стили для псевдо элементов*/
+*::before{
+    
+} /* это стили для псевдо элементов*/
 *::after{
     box-sizing: border-box;
 } 
@@ -136,7 +138,7 @@ color: #4D533C;
     padding-top: 189px;
     padding-bottom: 100px;
     min-height: 811px; /*когда используеш min-height:, обязательно надо использовать padding-top,padding-bottom иначе не сработает */
-    background-image: url("/static/images/Bitmap.png");
+    background-image: url("../images/Bitmap.png");
     background-size: cover; /*растягивает картинку*/
     background-position: center; /*центровать картинку по центру*/
     background-repeat: no-repeat; /*убирает повторения кортике*/
